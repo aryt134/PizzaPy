@@ -76,20 +76,20 @@ class Menu(object):
 
 
 def display(self):
-        def print_category(category, depth=1):
-            indent = "  " * (depth + 1)
-            if len(category.products) + len(category.subcategories) > 0:
-                print(indent + category.name)
-                for subcategory in category.subcategories:
-                    print_category(subcategory, depth + 1)
-                for product in category.products:
-                    print(indent + "  [%s]" % product.code, product.name)
-        print("************ Coupon Menu ************")
-        print_category(self.root_categories['Coupons'])
-        print("\n************ Preconfigured Menu ************")
-        print_category(self.root_categories['PreconfiguredProducts'])
-        print("\n************ Regular Menu ************")
-        print_category(self.root_categories['Food'])
+    def print_category(category, depth=1):
+        indent = "  " * (depth + 1)
+        if len(category.products) + len(category.subcategories) > 0:
+            print(indent + category.name)
+            for subcategory in category.subcategories:
+                print_category(subcategory, depth + 1)
+            for product in category.products:
+                print(indent + "  [%s]" % product.code, product.name)
+    print("************ Coupon Menu ************")
+    print_category(self.root_categories['Coupons'])
+    print("\n************ Preconfigured Menu ************")
+    print_category(self.root_categories['PreconfiguredProducts'])
+    print("\n************ Regular Menu ************")
+    print_category(self.root_categories['Food'])
 
 
 
